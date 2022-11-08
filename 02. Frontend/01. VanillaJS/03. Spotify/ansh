@@ -1,0 +1,63 @@
+Tailwind CSS & Vite
+
+
+
+
+
+
+
+
+
+
+PS C:\Desktop> npm create vite@latest
+√ Project name: ... SPOTIFY-CLONE
+√ Package name: ... ls
+√ Select a framework: » Vanilla
+√ Select a variant: » JavaScript
+
+Done. Now run:
+
+  cd SPOTIFY-CLONE
+  npm install
+  npm run dev
+
+npm i (check package.json(scripts are there))
+npm run dev(check if initial build is going on)
+
+change in package.json add scripts("start": "vite --port 3000 --open --host")
+npm start
+
+vite : environment variable code(touch vite.config.js and paste here) & , root:"src"
+
+
+For TailWind with vite;
+git branch named intial setup and commit -> git checkout -b tailwind-setup
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
+replace content: [] with content: ["./src/**/*.{html,js}"]
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+all three in styles
+
+new file as postcss.config.js(module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  }
+})
+
+Extension : 1. Tailwind CSS IntelliSense
+npm install -D prettier prettier-plugin-tailwindcss
+
+Spotify : https://developer.spotify.com/dashboard/
+
+Install plugin and add it to your 'tialwindcss.config' file: 
+    install @tailwindcss/line-clamp
+plugins: [require('@tailwindcss/line-clamp'),],
+
+
+
+
+npm run build
+npm run preview
