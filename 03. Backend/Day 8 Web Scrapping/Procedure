@@ -1,0 +1,6 @@
+1. git clone https://github.com/anshawasthi01/Projects-DT.git
+2. npm init
+3. .gitignore
+4. npm i express puppeteer g ngrok nodemon
+5. ngrok : gives url in placeof localhost which can be used by anyone 
+6. nodemon : if we made changes in project we need not to run our server again
