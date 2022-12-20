@@ -1,0 +1,25 @@
+1. npm init -y
+2. npm i express bcrypt jsonwebtoken multer sequelize sqlite3 morgan
+
+
+
+Signin = oAuth(Google, Facebook) or jst tokens(random number or bigtokens like 64bit)
+
+Headers = metadata for backend
+Authorization: "Bearer token"
+multer (upload)
+
+1. create server
+2. api/v1/user
+3. models
+4. 2 middlewares
+5 multer
+
+package:
+morgan
+bcrypt
+express
+jsonwebtoken
+multer
+sequelize
+sqlite3
