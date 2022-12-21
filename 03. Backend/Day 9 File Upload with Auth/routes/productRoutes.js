@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const stripe = require("stripe")(
-  "pk_test_51MHLWFSIoQ4sOUF7CzdUXBlbCFgAu32uNhRJp7h5Y8uJpqie1ZVGKUrRNk1P1T0etPYD9LFURVWy1KnIpCDj3SLJ00AUzBaUvT" // <-- place-your-stripe-key-here
+  "" // <-- place-your-stripe-key-here
 ); 
 const { WebhookClient } = require("discord.js");
 const Product = require("../models/productModel");
@@ -11,7 +11,7 @@ const { isAuthenticated, isSeller, isBuyer } = require("../middleware/auth");
 
 //creating object
 const webhookClient = new WebhookClient({
-  url: "https://discord.com/api/webhooks/1055008550180634624/DlrLyL0MI091EZqDBtAduK7mtcbelLX_IfpYr-fwbDotKup-YPfCxEfDgDGVQIUNeb0menter", // <-- your discord webhook url here
+  url: "", // <-- your discord webhook url here
 });
 
 router.post("/create", isAuthenticated, isSeller, (req, res) => {
