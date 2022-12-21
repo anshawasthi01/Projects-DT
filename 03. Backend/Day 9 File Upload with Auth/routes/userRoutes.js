@@ -2,7 +2,11 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt"); //* bcrypt is a 3rd party library which we use to hash, salt and compare passwords
 const jwt = require("jsonwebtoken");
+
 const User = require("../models/userModel");
+const Order = require("../models/orderModel");
+const { isAuthenticated, isBuyer } = require("../middleware/auth");
+
 const SECRET = "This is our secret";
 
 const {
@@ -83,10 +87,10 @@ router.post("/signin", async (req, res) => {
 
     const payload = { user: { id: existingUser.dataValues.id } };
     const bearerToken = await jwt.sign(payload, SECRET, {
-                                            // SECRET MESSAGE
+        //                                      SECRET MESSAGE
       expiresIn: 360000,
     });
-            // key     value         expire
+            //  key     value         expire
     res.cookie("t", bearerToken, { expire: new Date() + 9999 });
 
     console.log("Logged in successfully");
@@ -100,7 +104,7 @@ router.post("/signin", async (req, res) => {
   }
 });
 
-router.get("/signout", async (_req, res) => {
+router.get("/signout", (_req, res) => {
   try {
     res.clearCookie("t");
     return res.status(200).json({ message: "Signed out successfully" });
@@ -110,5 +114,18 @@ router.get("/signout", async (_req, res) => {
   }
 });
 
+router.get("/orders", isAuthenticated, isBuyer, async (req, res) => {
+  try {
+    // Get all orders of the user
+    const orders = await Order.findAll({
+      where: { buyerID: req.user.id },
+      include: [{ model: User, attributes: ["name"] }],
+    });
+    return res.status(200).json({ orders });
+  } catch (err) {
+    console.log(err.message);
+    return res.status(500).json({ err: err.message });
+  }
+});
 
 module.exports = router;

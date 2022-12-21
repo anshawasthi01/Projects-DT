@@ -24,8 +24,8 @@ const validateName = (name) => {
   /*
   //* For manually testing the validation functions
   console.log(
-    validateName("anshawasthi01"),
-    validateEmail("anshawasthi3894@gmail.com"),
+    validateName("shamim01"),
+    validateEmail("sm47@gmail.com"),
     validatePassword("HelloWorld@6")
   );
   */

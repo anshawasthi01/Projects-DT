@@ -23,3 +23,8 @@ jsonwebtoken
 multer
 sequelize
 sqlite3
+stripe
+discord.js // gives something called called as webhook client
+
+
+stripe for payment
