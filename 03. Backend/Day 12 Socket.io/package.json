@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.5.4"
+  },
+  "name": "day-12-socket.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+    "keywords": [
+    "chat-app",
+    "multi-room-chat-app",
+    "multi-user-chat-app",
+    "nodejs",
+    "websockets",
+    "socket.io"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
