@@ -28,3 +28,13 @@ discord.js // gives something called called as webhook client
 
 
 stripe for payment
+
+npm install --save-dev morgan for dev dependencies
+
+chai mocha - Unit testing
+swagger - documentation
+
+-> write mocha for testing
+
+Documentation : read all multiline comments and make html page(whic is treated as a document)
+ these all comes under swagger
