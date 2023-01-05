@@ -14,13 +14,13 @@ const isAuthenticated = async (req, res, next) => {
 
     const token = authHeader.split(" ")[1]; // This is the bearer token
 
-    if (!token) {
-      return res.status(401).json({
-        err: "No token, authorization denied",
-      });
-    }
+    // if (!token) {
+    //   return res.status(401).json({
+    //     err: "No token, authorization denied",
+    //   });
+    // }
 
-    const decoded = jwt.verify(token, SECRET);
+    const decoded = jwt.verify(token, process.env.SECRET);
     const user = await User.findById( decoded.user.id );
 
     if (!user) {
@@ -31,31 +31,10 @@ const isAuthenticated = async (req, res, next) => {
     next();
   } catch (err) {
     console.log(err);
-    res.status(401).json({
-      err: err.message,
+    res.status(503).json({
+      err: "Token is not valid",
     });
   }
 };
 
-const isSeller = (req, res, next) => {
-  if (req.user.dataValues.isSeller) {
-    next();  // next middlewares
-  } else {
-    res.status(401).json({
-      err: "You are not a seller",
-    });
-  }
-};
-
-// Added a new middleware to check if the user is a buyer
-const isBuyer = (req, res, next) => {
-  if (!req.user.dataValues.isSeller) {
-    next();
-  } else {
-    res.status(401).json({
-      err: "You are not a buyer",
-    });
-  }
-};
-
-module.exports = { isAuthenticated, isSeller, isBuyer };
+module.exports = { isAuthenticated };

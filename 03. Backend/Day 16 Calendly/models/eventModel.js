@@ -1,17 +1,17 @@
 const Mongoose = require('mongoose');
 
 const eventSchema = new Mongoose.Schema({
-    menteEmail: {
+    menteeEmail: {
         type: String,
         required: "true"
     },
-    menteeId: {
-        type: Mongoose.Schema.Types.ObjectId,
+    mentorID: {
+        type: ObjectId,
         ref: "User"
         },
 
     schedule: {
-        type: Mongoose.Schema.Types.ObjectId,
+        type: ObjectId,
         ref: "Schedule"
         },
 

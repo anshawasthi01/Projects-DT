@@ -66,6 +66,13 @@ const {
  *         description: Some server error
  */
 
+
+
+  // @route   POST api/v1/user/signup
+  // @desc    Register user
+  // @access  Public
+
+
 router.post("/signup", async (req, res) => {
   try {
     const { name, email, password } = req.body; //* destructuring name, email and password out of the request body
@@ -155,23 +162,24 @@ router.post("/signin", async (req, res) => {
       return res.status(400).json({ err: "Please enter your password" });
     }
 
-    const existingUser = await User.findOne({ where: { email: email } }); //* check if the user with the entered email exists in the database
+    const existingUser = await User.findOne({ email }); //* check if the user with the entered email exists in the database
     if (!existingUser) {
-      return res.status(404).json("Error: User not found");
+      return res.status(404).json({err: "User not found"});
     }
 
     //* hashes the entered password and then compares it to the hashed password stored in the database
-    const passwordMatched = await bcrypt.compare(
+    const isPasswordCorrect = await bcrypt.compare(
       password,
       existingUser.password
-    );
+    ); //* compares the entered password with the hashed password in the db
 
-    if (!passwordMatched) {
-      return res.status(400).send("Error: Incorrect password");
+    if (!isPasswordCorrect) {
+      return res.status(400).send({err: "Invalid credentials"});
     }
+    console.log(existingUser, existingUser.id);
 
-    const payload = { user: { id: existingUser.dataValues.id } };
-    const bearerToken = await jwt.sign(payload, SECRET, {
+    const payload = { user: { id: existingUser.id } };
+    const bearerToken = await jwt.sign(payload, process.env.SECRET, {
         //                                      SECRET MESSAGE
       expiresIn: 360000,
     });
