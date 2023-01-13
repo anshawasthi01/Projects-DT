@@ -1,0 +1,15 @@
+https://www.youtube.com/watch?v=y8rC8hGQw8I&t=104s
+
+https://github.com/devs-nest/backend-3.0/tree/main/Day%2021%20(social-network)
+
+https://github.com/thahseen53/social-media
+
+Redis : session store in ram .get and .set key and data
+
+cloudinary = images video get post api
+passport gives strategy= authentication (local oauth google)
+morgan = register failing
+datadog = push log files
+
+npm install express bcrypt cloudinary connect-mongo dotenv ejs express-flash express-session method-override mongodb mongoose morgan multer nodemon passport passport-local validator
+"start": "nodemon server.js",
