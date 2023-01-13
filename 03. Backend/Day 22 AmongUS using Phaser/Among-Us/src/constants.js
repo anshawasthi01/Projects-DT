@@ -1,0 +1,9 @@
+export const PLAYER_SPITE_WIDTH = 84;
+export const PLAYER_SPITE_HEIGHT = 128;
+export const PLAYER_HEIGHT = 50;
+export const PLAYER_WIDTH = 37;
+export const PLAYER_START_POSITION_X = 330;
+export const PLAYER_START_POSITION_Y = 100;
+export const PLAYER_SPEED = 3;
+export const SHIP_HEIGHT = 1160;
+export const SHIP_WIDTH = 2160;
