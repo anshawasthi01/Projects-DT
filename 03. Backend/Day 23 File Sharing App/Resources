@@ -1,0 +1,15 @@
+https://www.youtube.com/watch?v=TivVt0ea8JM
+
+https://github.com/devs-nest/backend-3.0/tree/main/Day%2023%20(File%20Sharing%20App)
+
+
+env 
+
+PORT = 
+SMTP_HOST_URL = 
+SMTP_PORT = 
+MAIL_USER = 
+MAIL_PASSWORD  = 
+MONGO_URL = 
+APP_BASE_URL = 
+NODE_ENV = 
