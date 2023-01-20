@@ -9,3 +9,8 @@ https://github.com/devs-nest/backend-3.0/tree/main/Day%2024-25%20(Planner%20App%
 
 
 npm install morgan nodemon --save-dev
+
+have to send array of string like = ["ansh", "vikas"]
+http://localhost:1338/
+
+install redis locally
