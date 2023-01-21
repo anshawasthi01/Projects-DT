@@ -1,3 +1,9 @@
 npm install nodemon --save-dev
 
 https://www.youtube.com/watch?v=ZhwlRkp6Czs
+
+
+Babel = new js to old js
+
+frontend
+npx create-react-app my-app
